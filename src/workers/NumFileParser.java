@@ -10,6 +10,10 @@ import java.io.*;
 public class NumFileParser {
     private File numFile;
 
+    public File getNumFile() {
+        return numFile;
+    }
+
     public NumFileParser() {
 
     }
@@ -34,7 +38,7 @@ public class NumFileParser {
                     for (String l : s.split(" ")) {
                         long x = 0;
                         try{
-                            //regexp
+
                             x = Long.parseLong(l);
                         }
                         catch (NumberFormatException e)
@@ -52,8 +56,10 @@ public class NumFileParser {
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+            return 0;
         } catch (IOException e) {
             e.printStackTrace();
+            return 0;
         }
         return sum;
     }
